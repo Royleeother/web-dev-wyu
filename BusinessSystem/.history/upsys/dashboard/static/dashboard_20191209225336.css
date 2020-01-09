@@ -1,0 +1,45 @@
+.dashboard-left {
+    background-color: #3c3c3c;
+    color: #fff !important;
+    border-color: #3c3c3c;
+    width: 18%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+.dashboard-title-container {
+    width: 97%;
+    height: 8%;
+    padding: 15px;
+    border-bottom-style: inset;
+}
+
+.dashboard-title-fix {
+    text-align: left;
+    font-size: large;
+    margin-left: 20px;
+}
+
+.side-nav {
+    list-style: none;
+    padding-left: 0;
+    height: 70%;
+    border: dotted;
+    font-size: larger;
+}
+
+.nav-header {
+    border: dotted;
+    height: 7%;
+    opacity: 0.8;
+    padding-left: 15px;
+}
+
+.nav-children {
+    border: dotted;
+    height: 7%;
+    padding-left: 15px;
+    font-size: larger;
+}

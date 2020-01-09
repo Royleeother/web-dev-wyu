@@ -1,0 +1,19 @@
+{% load static %}
+{% include 'includes/header_static_files.html' %}
+
+<body>
+    {% include 'includes/header.html' %}
+    <div class="info-wrap">
+        <div class="info-container">
+            {% block left-box %}
+            {% endblock left-box %}
+
+            {% block middle-box %}
+            {% endblock middle-box %}
+            
+            {% block right-box %}
+            {% endblock right-box %}
+        </div>
+    </div>
+</body>
+</html>

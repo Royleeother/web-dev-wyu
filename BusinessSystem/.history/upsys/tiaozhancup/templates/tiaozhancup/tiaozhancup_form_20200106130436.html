@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'tiaozhancup.css' %}">
+{% endblock %}
+
+{% block middle-box %}
+    {% block panel %}
+        {% include 'includes/form_panel.html' %}
+    {% endblock panel %}
+{% endblock middle-box %}

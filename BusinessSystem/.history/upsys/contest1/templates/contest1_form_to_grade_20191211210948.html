@@ -1,0 +1,49 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'css/content1.css' %}">
+{% endblock %}
+
+{% block middle-box %}
+<!-- <div>
+    <h1>
+        {{ student_id }}
+    </h1>
+</div>      -->
+<div class="form-area">
+    <!-- student_contest ?: 
+    {{ student_contest }} <br> -->
+    <div class="label-and-bar-wrap">
+        {% for ff in student_form %}
+        <div class="label-and-bar">
+            <label for="success" class="control-label">{{ ff.label }}</label>
+            <div class="contest-form-bar">
+                {{ ff.value }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+</div>
+<div class="form-area">
+    <form method="post">
+        {% csrf_token %}
+        {% for ff in give_grade_form %}
+        <div class="label-and-bar">
+            <label for="success" class="control-label">{{ ff.label }}</label>
+            <div class="contest-form-bar">
+                {{ ff }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="button-wrap">
+            <button type="submit" name="submit" class="btn btn-success btn-labeled">
+                提交
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock middle-box %}

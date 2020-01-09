@@ -1,0 +1,11 @@
+.AppHeader {
+    border: dotted;
+    border-color: royalblue;
+    /* position: fixed;
+    width: 100%;
+    height: 10%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background: #fff; */
+}

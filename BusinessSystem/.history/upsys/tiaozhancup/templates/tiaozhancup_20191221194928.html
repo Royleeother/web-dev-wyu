@@ -1,0 +1,52 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'tiaozhancup.css' %}">
+{% endblock %}
+
+{% block middle-box %}
+<div class="content-post">
+    <div class="contest-description-bar">
+        挑战杯描述
+    </div>
+    <div class="content-function">
+        {% if user.is_authenticated and user.is_teacher %}
+            {% if user.teacher.really_a_teacher %}
+            <div class="content-review">
+                <!-- <button class="content-button">
+                    审核报名信息
+                </button> -->
+                <div style="margin-top: 38px"></div>
+                <a href="/contest1/review" class="fix-a redirect-button">审核报名信息</a>
+            </div>
+                    
+        </div>
+        {% else %}
+        <h1>你的信息待审核，请耐心等待</h1>
+        {% endif %}
+
+        {% elif user.is_authenticated and user.is_student%}
+        <div class="content-register">
+            {% if 'Contest1' not in contest_list %}
+            <div style="margin-top: 38px"></div>
+                <a href="create/" class="fix-a redirect-button">报名</a>
+        </div>
+            {% else %}
+            <h2>你已经报名了</h2>
+            <h3>你的申报状态如下:</h3>
+            <h4 style="display: inline-block">{{ status }}</h4>
+            {% if status == '审核不通过' %}
+            <a href="/contest1/update/{{ student_contest_id }}/" style="display: inline-block">修改信息</a>
+            {% endif %}
+            {% endif %}
+        {% else %}
+            <div class="content-disallow">
+                gck! gck! gck!
+            </div>
+        {% endif %}
+</div>
+
+
+{% endblock middle-box %}

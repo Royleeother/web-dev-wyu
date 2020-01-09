@@ -1,0 +1,21 @@
+div {
+    border: dotted;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    width: 100%;
+    height: 30%;
+    border-color: royalblue; 
+    box-sizing: border-box;
+    position: absolute;
+    text-align: center;
+}
+
+.contest-info-box {
+    width: 20%;
+    height: 80%;
+    border-color: rebeccapurple; 
+    position: relative;
+    text-align: center;
+}

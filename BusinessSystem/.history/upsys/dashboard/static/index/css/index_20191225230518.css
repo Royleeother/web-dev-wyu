@@ -1,0 +1,236 @@
+/* div {
+    border: dotted;
+} */
+
+body {
+    background-color: rgb(242, 242, 242);
+    font-family: Arial, Helvetica, sans-serif, Microsoft YaHei;
+}
+
+.vertical-center {
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.fix-a {
+    text-decoration:none;
+    color:black;
+    border-bottom: none;
+}
+
+#head-container {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 21%;
+    border-color: red;
+    text-align: center;
+}
+
+#head-content {
+    width: 89%;
+    height: 91%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 9px;
+}
+
+#head-title {
+    color: #ca1e1e;
+    font-size: 43px;
+    font-family: Microsoft YaHei;
+}
+
+#body-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 153px;
+    left: 0;
+    margin: 0 auto;
+}
+
+.left-box {
+    border-color: antiquewhite;
+    width: 44%;
+    display: inline-block;
+    border-right-style: inset;
+    height: 80%;
+}
+
+.right-box {
+    border-color:blue;
+    width: 53%;
+    display: inline-block; 
+    vertical-align: top;
+    height: 80%;
+}
+
+.content-box {
+    position: relative;
+    height: 75%;
+    width: 60%;
+    margin: auto;
+    margin-top: 34px;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sameline {
+    width: 100%;
+    height: 100%;
+}
+
+.login-content {
+    padding: 20px;
+    height: 88%;
+    width: 90%;
+}
+
+.aler-info {
+    margin: 15px auto;
+    border-radius: 4px;
+    background-color: rgb(215, 161, 160);
+    width: 83%;
+    height: 9%;
+    transform: translateY(13px);
+}
+
+.form-group {
+    margin: 6px auto;
+    margin-bottom: 10px;
+    /* border: dotted; */
+    height: 11%;
+    width: 100%;
+    position: relative;
+    text-align: center
+}
+
+.control-label {
+    padding-top: 7px;
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.col-sm-10 {
+    float: right;
+    width: 82.3333%;
+    height: 100%;
+}
+
+.col-lb-10 {
+    height: 100%;
+    width: 14%;
+    float: left;
+}
+
+#inputlogin {
+    width: 86%;
+    height: 51%;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset;
+    padding: 6px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;    
+}
+
+.login-btn {
+    cursor: pointer;
+    border: solid;
+    border-radius: 5px; 
+}
+
+.sign-up-wrap {
+    width: 100%;
+    height: 34%;
+    text-align: center;
+    position: fixed;
+    top: 213px;
+}
+
+.sign-up-wrap-box {
+    height: 233px;
+    width: 285px;
+    margin: 0 auto;
+    background-color: rgba(228, 228, 219, 0.85);
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 2px 17px;
+    border-radius: 4px;
+}
+
+.sign-up-form {
+    width: 100%;
+    height: 34%;
+    text-align: center;
+    position: fixed;
+    top: 85px;
+}
+
+.sign-up-form-box {
+    height: 473px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(228, 228, 219, 0.85);
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 2px 17px;
+    border-radius: 4px;
+}
+/* */
+.contact input[type="text"], .contact input[type="email"], .contact input[type="password"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 18px;
+    border: 1px solid #e1e1e1;
+    box-shadow: none;
+    width: 200px;
+    height: 36px;
+    padding: 4px 6px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.contact label {
+    line-height: 30px;
+}
+
+.ctrl{
+    width: 40%;
+}
+
+.contact{
+    width: 41%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact textarea {
+    width: 100%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.wordcss {
+    font-weight: 100;
+    font-size: 13px;
+    text-align: left;
+    color: #969696;
+    margin-top: 10px;
+}
+/* */

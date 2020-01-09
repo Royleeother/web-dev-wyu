@@ -1,0 +1,50 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block left-box %}
+<div class="info-area left-area">
+    <div class="contest-container">
+        <div class="description-bar">
+            <div class="vertical-center">
+                <b>报名信息</b>
+            </div> 
+        </div>
+        <div class="contest-bar">
+            <div class="contest-card">
+                <div class="image-bar">
+                    <a class="fix-a" href="/contest1">
+                        <img src="{% static 'image/contest1.jpg' %}" class="bar-image-setting">
+                    </a>
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a" href="/contest1"><b>厅室申请</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a" href="/tiaozhancup/create"><b>挑战杯</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock left-box %}
+
+{% block right-box %}         
+<div class="info-area right-area">
+    <div class="announce-container">
+        <div class="description-bar">
+            <div class="vertical-center">
+                <b>通知</b> <i class="fa fa-bell fa-1x"></i>
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock right-box %}

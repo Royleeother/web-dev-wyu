@@ -1,0 +1,42 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'css/tiaozhancup.css' %}">
+{% endblock %}
+
+{% block middle-box %}
+<div class="graded-area">
+    {% if teacher_is_authorized %}
+    <div class="student-area">
+        <div class="area-title-bar">
+            所有报名信息<br>
+        </div>
+
+        {% for jj in contest_is_reviewing %}
+        <div class="student-contest-box">
+            <div class="student-name-bar">
+                <div class=" vertical-center">
+                    <a class="fix-a" href="/tiaozhancup/form/{{ jj.student.SID }}/"">{{ jj.student.username }}</a>
+                </div>
+            </div>
+            <div class="student-state-bar">
+                <div class="vertical-center">
+                    <span> • </span>state
+                </div>
+            </div>
+            <!-- <div>{{ jj.student.SID }}</div> -->
+        </div>    
+        {%endfor%}
+    </div>
+    {% else %}
+        <h1>
+            你无权审核此比赛<br>
+            {{ user }}
+            {{ user.teacher.TID }}
+        </h1>
+    {% endif %}
+</div>
+
+{% endblock middle-box %}

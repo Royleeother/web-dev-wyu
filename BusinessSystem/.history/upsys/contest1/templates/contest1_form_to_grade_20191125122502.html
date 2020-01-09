@@ -1,0 +1,38 @@
+{% extends 'contest1_review.html' %}
+
+{% block form_block %}
+<div>
+    <h1>
+        jkbhjb <br>
+        {{ student_id }}
+    </h1>
+</div>
+<div>
+   
+    {{ student_contest }} <br>
+    {% for ff in student_form %}
+    <div>
+        <label for="success" class="control-label">{{ ff.label_tag }}</label>
+        {{ ff }}
+    </div>
+    {% endfor %}
+    
+</div>
+<div>
+    <h3>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ give_grade }}
+                <div class="form-group has-success">
+    
+                    <div class="">
+                        <button type="submit" name="submit" class="btn btn-success btn-labeled">提交<span class="btn-label btn-label-right"><i
+                                    class="fa fa-check"></i></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </h3>
+</div>
+{% endblock form_block %}

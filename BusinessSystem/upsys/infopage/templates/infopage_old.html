@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INFOPAGE</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/infopage.css' %}"> 
+</head>
+<body>
+    <div>
+        <h1>
+            这是一个信息汇总的页面
+        </h1>
+    </div>
+    <div class="logout">
+        <a href="/dashboard/logout">退出登录</a>
+    </div>
+    <div>
+        <a class="login-link" href="/dashboard">我的信息</a>
+    </div>
+
+    <div class="info-box">
+        <div>
+            比赛/报名表
+        </div>
+        <div class="contest-info-box">
+            <a class="login-link" href="/contest1">终极装修报名单</a>
+        </div>
+        <div class="contest-info-box">
+            <a class="login-link" href="/contest1">XXXX比赛</a>
+        </div>
+    </div>
+</body>
+</html>

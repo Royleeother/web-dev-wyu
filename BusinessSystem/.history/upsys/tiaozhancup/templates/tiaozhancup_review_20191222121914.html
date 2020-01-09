@@ -1,0 +1,22 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'css/tiaozhancup.css' %}">
+{% endblock %}
+
+{% block middle-box %}
+<div class="graded-area">
+    {% if teacher_is_authorized %}
+    
+    {% else %}
+        <h1>
+            你无权审核此比赛<br>
+            {{ user }}
+            {{ user.teacher.TID }}
+        </h1>
+    {% endif %}
+</div>
+
+{% endblock middle-box %}

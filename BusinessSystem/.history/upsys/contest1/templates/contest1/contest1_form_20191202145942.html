@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <title>form</title>
+    <link rel="stylesheet" href="{% static 'css/content1.css' %}">
+
+</head>
+<body>
+    <div>
+        <h1>这是比赛报名的界面</h1>
+    </div>
+    
+    {% block panel %}
+    {% if contest.created_by == user %}
+        {% include 'includes/form_panel.html' %}
+    {% else %}
+        不要搞事情
+    {% endif %}
+    {% endblock panel %}
+</body>
+</html>

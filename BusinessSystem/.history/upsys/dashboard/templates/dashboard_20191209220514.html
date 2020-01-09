@@ -1,0 +1,26 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+{% endblock %}
+
+{% block dashboard-left %}
+    <div class="dashboard-left">
+        <ul class="side-nav "> 
+            <li class="nav-header">
+                
+            </li>
+        </ul>
+    </div>
+{% endblock dashboard-left %}
+
+{% block middle-box %}
+    <div class="dashboard-title-container">
+        <div class="dashboard-title-fix vertical-center">
+            {{ 瀚海北金 }}
+            瀚海北金
+        </div>
+    </div>
+{% endblock middle-box %}

@@ -1,0 +1,124 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block left-box %}
+
+<style type="text/css">
+a:link
+{
+    color:#000;
+    text-decoration:none;}
+a:visited
+{
+    color:#000;
+    text-decoration:none;}
+a:hover
+{
+    color:#2cc176;
+    text-decoration:underline;}
+a:active
+{
+    color:#F90;
+    text-decoration:underline;}
+</style>
+
+<div class="info-area left-area">
+    <div class="contest-container">
+        <div class="description-bar">
+                <b>报名信息</b>
+            <!-- <div class="vertical-center">
+                
+            </div>  -->
+        </div>
+        <div class="contest-bar">
+            <div class="contest-card">
+                <div class="image-bar">
+                    <a class="fix-a" href="/contest1">
+                        <img src="{% static 'image/contest1.jpg' %}" class="bar-image-setting">
+                    </a>
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a" href="/contest1"><b>厅室申请</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+
+                    <a class="fix-a" href="/tiaozhancup/">
+                        <img src="{% static 'image/tiaozhancup1.jpg' %}" class="bar-image-setting">
+                    </a>
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a" href="/tiaozhancup/"><b>挑战杯</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+                    <a class="fix-a">
+                        <img src="{% static 'image/lanqiaocup.jpg' %}" class="bar-image-setting">
+                    </a>
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a"><b>蓝桥杯</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a"><b>(敬请期待！)</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a"><b>xxx</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contest-card">
+                <div class="image-bar">
+                </div>
+                <div class="contest-name-bar">
+                    <div class="vertical-center">
+                        <a class="fix-a" ><b>xxx</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock left-box %}
+
+{% block right-box %}         
+<div class="info-area right-area">
+    <div class="announce-container">
+        <div class="description-bar">
+            <div class="vertical-center">
+                <b>通知</b> <i class="fa fa-bell fa-1x"></i>
+            </div> 
+        </div>
+        <br /><a href="http://www.tiaozhanbei.net/project/">挑战杯作品库</a>
+        <br /><a href="http://www.lanqiao.org/">蓝桥杯官网</a>
+        <br /><a href="http://www.wyu.edu.cn/">五邑大学官网</a>
+        {% if user.is_authenticated and user.is_teacher %}
+            <br> #老师审核 之类的通知
+        {% elif user.is_authenticated and user.is_student%}
+            <br> #学生审核 之类的通知
+        {% else %}
+            <br> # roy
+        {% endif %}
+    </div>
+</div>
+{% endblock right-box %}

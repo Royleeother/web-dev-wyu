@@ -1,0 +1,29 @@
+{% extends 'contest1_review.html' %}
+
+{% block student_link %}
+    {% for jj in contest_is_reviewing %}
+    <a href="/contest1/form/{{ jj.student.SID }}/"">{{ jj.student.username }}</a>
+        <div>{{ jj.student.SID }}</div>
+    {%endfor%}
+{% endblock student_link %}
+
+{% block form_block %}
+<div>
+    <h1>
+        jkbhjb <br>
+        {{ student_id }}
+    </h1>
+</div>
+<div>
+    <h2>
+        {{ student_contest }} <br>
+        {{ student_form }}
+    </h2>
+</div>
+<div>
+    <h3>
+        审核的东东 <br>
+        
+    </h3>
+</div>
+{% endblock form_block %}

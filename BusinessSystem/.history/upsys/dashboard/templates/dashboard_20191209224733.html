@@ -1,0 +1,37 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+{% endblock %}
+
+{% block dashboard-left %}
+    <div class="dashboard-left">
+        <ul class="side-nav color-gray"> 
+            <li class="nav-header">
+                <div class="vertical-center" style="text-align: left;">
+                    主菜单
+                </div>
+            </li>
+        </ul>
+        <ul class="side-nav color-gray"> 
+            <li class="nav-header">
+                <div class="vertical-center" style="text-align: left;">
+                    <a href="" class="fix-a color-gray">
+                        游藤卫矛
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock dashboard-left %}
+
+{% block middle-box %}
+    <div class="dashboard-title-container">
+        <div class="dashboard-title-fix vertical-center">
+            <b>{{ 瀚海北金 }}</b> 
+            <b>瀚海北金</b> 
+        </div>
+    </div>
+{% endblock middle-box %}

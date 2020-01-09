@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>登录</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="？？" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% load staticfiles %}
+  <link rel="stylesheet" media="screen" href="{% static 'index/css/style.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'index/css/reset.css' %}"/>
+</head>
+<body>
+<div id="particles-js">
+    <div class="head-text">
+        五邑大学团委综合业务管理系统
+    </div>
+		<div class="login">
+			<form method="post" action="#" id="login-form">
+			{% csrf_token %}
+				<div class="login-top">
+						登录
+					</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="{% static 'index/css/name.png' %}"/></div>
+						<div class="login-center-input">
+							<input type="text" class="form-control" id="username" name="username" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'" required/>
+							<div class="login-center-input-text">用户名</div>
+						</div>
+					</div>
+
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="{% static 'index/css/password.png' %}"/></div>
+						<div class="login-center-input">
+							<input type="password" class="form-control" id="password" name="password" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'" required/>
+							<div class="login-center-input-text">密码</div>
+						</div>
+					</div>
+					<div class="login-button" >
+						登录
+					</div>
+					<div class="regist-button" >
+						注册
+					</div>
+			</form>
+
+			<div class="forgot-a" >
+				<!-- <a href="/forget-password">忘记密码？</a> -->
+				<!-- <a href='accounts/password_reset/'>忘记密码？</a> -->
+				<a href='{% url "password_reset_recover" %}'>忘记密码</a>
+			</div>
+		</div>
+		<div class="sk-rotating-plane"></div>
+</div>
+<script>
+    document.querySelector(".login-button").onclick = function(){
+        document.getElementById('login-form').submit();
+    }
+    document.querySelector(".regist-button").onclick = function(){
+        window.location.href = "/dashboard/signup/";
+    }
+</script>
+</body>
+</html>

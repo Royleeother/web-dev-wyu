@@ -1,0 +1,48 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+{% endblock %}
+
+{% block dashboard-left %}
+    <div class="dashboard-left">
+        <ul class="side-nav color-gray"> 
+            <li class="nav-header">
+                <div class="vertical-center" style="text-align: left;">
+                    <i class="fa fa-id-card fa-1x"></i>
+                    &nbsp; 主菜单
+                </div>
+            </li>
+            <li class="nav-children">
+                <div class="vertical-center" style="text-align: left;">
+                    <a href="" class="fix-a color-gray">
+                        <i class="fa fa-id-card fa-1x"></i>
+                        &nbsp; 已参加比赛
+                    </a>
+                </div>
+            </li>
+            <li class="nav-children">
+                <div class="vertical-center" style="text-align: left;">
+                    <a href="" class="fix-a color-gray">
+                        <i class="fa fa-id-card fa-1x"></i>
+                        &nbsp; 修改个人信息
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock dashboard-left %}
+
+{% block middle-box %}
+    <div class="dashboard-title-container">
+        <div class="dashboard-title-fix vertical-center">
+            <b>{{ 瀚海北金 }}</b> 
+            <b>已参加比赛</b> 
+        </div>
+    </div>
+    <div class="dashboard-card-container">
+        hhhhh
+    </div>
+{% endblock middle-box %}

@@ -1,0 +1,18 @@
+.contest-description-bar {
+    margin-bottom: 10px;
+    background-color: aliceblue;
+    border: solid;
+    text-align: left;
+    font-size: medium;
+}
+
+.redirect-button {
+    width: 30px;
+    height: 20px;
+    box-sizing: content-box;
+    background-color: #95ccce;
+    font-size: larger;
+    padding: 8px;
+    position: relative;
+    border-radius: 3px;
+}

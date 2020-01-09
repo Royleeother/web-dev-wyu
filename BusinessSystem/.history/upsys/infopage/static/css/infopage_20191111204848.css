@@ -1,0 +1,12 @@
+div {
+    border: dotted;
+}
+
+.info-box {
+    width: 100%;
+    height: 30%;
+    border-color: royalblue; 
+    box-sizing: border-box;
+    position: absolute;
+    text-align: center;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>引得 --- 欢迎页</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+    </head>
+    <body>
+        <form method="post" action="" id="login-form"> 
+            {% csrf_token %}
+        <div id="head-container">
+            <div id="head-content">
+                <div id="head-title">
+                    五邑大学报名网站
+                </div>
+            </div>
+        </div>
+        <div id="body-container">
+            <div class="sameline">
+                <div class="left-box">
+                    <div class="content-box">
+    
+                    </div>
+                </div>
+                <div class="right-box">
+                    <form method="post" action="#"> 
+                            {% csrf_token %}
+                    <div class="content-box">
+                        <div class="aler-info">
+                            {{ message }}
+                        </div>
+                        <div class="login-content">
+                            <div class="form-group">
+                                <div class="col-lb-10">
+                                    <label for="inputEmail3" class="control-label">学号:</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <input type="text" name="username" class="form-control vertical-center" id="inputlogin"
+                                        placeholder="UserName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lb-10">
+                                    <label for="inputPassword3" class="control-label">密码:</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <input type="password" name="password" class="form-control vertical-center" id="inputlogin"
+                                        placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" name="login" class="login-btn">
+                                    登录
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <a href="dashboard/signup/">注册</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </form>
+    </body>
+</html>

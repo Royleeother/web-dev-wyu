@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>检查页面</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/content1.css' %}">
+    <style>
+        div {
+            border: solid;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>
+            这是一个审查学生报名信息的页面
+        </h1>
+    </div>
+    {% if user.teacher.TID in authorize_TID.keys() %}
+        <h1>
+            你有权
+        </h1>
+    {% else %}
+        <h1>
+            你无权审核此比赛
+        </h1>
+    {% endif %}
+    <div>
+        所有参赛的信息
+        {{ contest_is_reviewing }}
+    </div>
+    {% for jj in test %}
+    <div>
+        {{ jj }}
+    </div>
+    {%endfor%}
+</body>
+</html>

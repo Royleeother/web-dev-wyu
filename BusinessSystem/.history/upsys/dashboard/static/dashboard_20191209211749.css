@@ -1,0 +1,10 @@
+.dashboard-left {
+    background-color: #3c3c3c;
+    color: #fff !important;
+    border-color: #3c3c3c;
+    width: 24%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5px;
+}

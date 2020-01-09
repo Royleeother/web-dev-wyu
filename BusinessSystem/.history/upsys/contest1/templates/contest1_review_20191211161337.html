@@ -1,0 +1,56 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block app-css %} 
+<link rel="stylesheet" href="{% static 'css/content1.css' %}">
+{% endblock %}
+
+{% block left-box %}
+<div class="graded-area">
+{% if user.teacher.TID in authorize_TID_keys %}
+    <!-- <h1>
+        {% if user.teacher.TID == 't1' %}
+            厅室
+        {% elif user.teacher.TID == 't2' %}
+            校律委管理员
+        {% elif user.teacher.TID == 't3' %}
+            团委管理员
+        {% endif %}
+    </h1> -->
+    <div class="student-area">
+        <div class="area-title-bar">
+            所有报名信息<br>
+        </div>
+
+        {% for jj in contest_is_reviewing %}
+        <div class="student-contest-box">
+            <a href="/contest1/form/{{ jj.student.SID }}/"">
+                <div class="student-name-bar">
+                    <a class="fix-a vertical-center" href="/contest1/form/{{ jj.student.SID }}/"">{{ jj.student.username }}</a>
+                </div>
+                <div class="student-state-bar">
+                    <div class="vertical-center">
+                        <span> • </span>state
+                    </div>
+                </div>
+            </a>
+            <!-- <div>{{ jj.student.SID }}</div> -->
+        </div>    
+        {%endfor%}
+    </div>
+    {% else %}
+        <h1>
+            你无权审核此比赛<br>
+            {{ user }}
+            {{ user.teacher.TID }}
+        </h1>
+    {% endif %}
+</div>
+{% endblock left-box %}
+
+{% block middle-box %}
+
+{% endblock middle-box %}
+
+

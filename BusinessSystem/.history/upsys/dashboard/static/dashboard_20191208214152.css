@@ -1,0 +1,7 @@
+.dashboard-left {
+    background-color: black;
+    width: 18%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}

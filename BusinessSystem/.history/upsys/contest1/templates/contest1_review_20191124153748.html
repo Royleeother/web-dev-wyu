@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>检查页面</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/content1.css' %}">
+    <style>
+        div {
+            border: solid;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>
+            这是一个审查学生报名信息的页面
+        </h1>
+    </div>
+    <div class="student-area" style="background-color: cadetblue">
+        所有参赛的信息<br>
+        {{ contest_is_reviewing }}
+        {% for jj in test %}
+        <div>
+            {{ jj }}
+        </div>
+        {%endfor%}
+    </div>
+    <div class="graded-area" style="background-color: aquamarine">
+    {% if user.teacher.TID in authorize_TID_keys %}
+        <h1>
+            {% if user.teacher.TID == 't1' %}
+                厅室
+            {% elif user.teacher.TID == 't2' %}
+                校律委管理员
+            {% elif user.teacher.TID == 't3' %}
+                团委管理员
+            {% endif %}
+        </h1>
+    {% else %}
+        <h1>
+            你无权审核此比赛<br>
+            {{ user }}
+            {{ user.teacher.TID }}
+        </h1>
+    {% endif %}
+    </div>
+    {% form_block %}
+    
+    {% endblock %}
+</body>
+</html>

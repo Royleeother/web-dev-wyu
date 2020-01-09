@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+</head>
+<body>
+    <!-- {% if user.is_authenticated and user.is_teacher %}
+        <h1>老师</h1>
+    {% else %}
+        <h1>学生  </h1>
+    {% endif %} -->
+    <h2 id="sign-up-as" style="margin-left: 70px;">注册为 {{ user_type }}</h2>
+    <div class="sign-up-form">
+        <div class="sign-up-form-box">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="保存">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    word = document.querySelector("#sign-up-as").value
+</script>
+</html>

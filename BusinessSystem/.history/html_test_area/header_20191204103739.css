@@ -1,0 +1,14 @@
+.AppHeader {
+    top: 0px;
+    left: 0px;
+    border: dotted;
+    border-color: royalblue;
+    position: fixed;
+    overflow: hidden;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    background-clip: content-box;
+    width: 100%;
+    height: 100%;
+}

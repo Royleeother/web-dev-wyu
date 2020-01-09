@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <title>contest1</title>
+    <link rel="stylesheet" href="{% static 'css/content1.css' %}">
+
+</head>
+<body>
+    <div class="content-post">
+        我是一张大海报<br>
+        这里是比赛的简介、报名页面<br>
+        <div class="description-bar">
+            注意事项：<br>
+            1、	使用前请认真阅读《活动中心厅室管理制度》。<br>
+            2、	厅室内及大门口禁止粘贴任何可能留下痕迹的物品，例如双面胶、透明胶、气球和纸巾等等，并要做好墙壁的保洁工作，发现墙上有脚印手印的，取消其下学期申请使用厅室的使用权。<br>
+            3、	未经校律委宣管部同意擅自移动或使用厅室的音响等设备的，视情况而定，减少甚至取消其下学期申请使用厅室的使用权。<br>
+            4、	若使用厅室过程中财物有损坏，要求使用单位按原价格进行赔偿。<br>
+            5、	活动结束后自觉及时打扫卫生，如检查不及格，要求重新清洁卫生，视情况的严重程度，按照相关规定罚款处理。<br>
+            6、	厅室使用时间段为09:00-22:00；使用时间段需填写活动的开门时间和关门时间。<br>
+            <br>
+        </div>
+        <div class="content-function">
+            {% if user.is_authenticated and user.is_teacher %}
+                {% if user.teacher.really_a_teacher %}
+                <div class="content-review">
+                    <!-- <button class="content-button">
+                        审核报名信息
+                    </button> -->
+                    <a href="/contest1/review">审核报名信息</a>
+                    <!-- <h1>
+                        {{ test }}
+                    </h1> -->
+                </div>
+                {% else %}
+                <h1>你的信息待审核，请耐心等待</h1>
+                {% endif %}
+            {% elif user.is_authenticated and user.is_student%}
+                <div class="content-register">
+                    {% if 'Contest1' not in contest_list %}
+                    <button class="content-button">
+                        填写报名信息
+                    </button>
+                    <a class="login-link" href="create/">报名</a>
+                    {% else %}
+                    <h2>你已经报名了</h2>
+                    <h3>你的申报状态如下:</h3>
+                    <h4>{{ status }}</h4>
+                    {% if status == '审核不通过' %}
+                    <a href="">修改信息</a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="content-disallow">
+                    gck! gck! gck!
+                </div>
+            {% endif %}
+        </div>
+        <div class="logout">
+            <a href="/dashboard/logout">退出登录</a>
+        </div>
+    </div>
+</body>
+</html>

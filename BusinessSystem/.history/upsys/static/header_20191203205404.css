@@ -1,0 +1,7 @@
+#header {
+    border: dotted;
+    border-color: royalblue;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+}

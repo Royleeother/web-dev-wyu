@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <title>contest1</title>
+    <link rel="stylesheet" href="{% static 'css/content1.css' %}">
+
+</head>
+<body>
+    <div class="content-post">
+        我是一张大海报<br>
+        这里是比赛的简介、报名页面
+        <div class="description-bar">
+            我包含了描述得内容<br>
+            我可以随意移动<br>
+            <br>
+        </div>
+        <div class="content-function">
+            {% if user.is_authenticated and user.is_teacher %}
+                {% if user.teacher.really_a_teacher %}
+                <div class="content-review">
+                    <!-- <button class="content-button">
+                        审核报名信息
+                    </button> -->
+                    <a href="">审核报名信息</a>
+                    <h1>
+                        {{ test }}
+                    </h1>
+                </div>
+                {% else %}
+                <h1>你的信息待审核，请耐心等待</h1>
+                {% endif %}
+            {% elif user.is_authenticated and user.is_student%}
+                <div class="content-register">
+                    {% if 'Contest1' not in contest_list %}
+                    <button class="content-button">
+                        填写报名信息
+                    </button>
+                    <a class="login-link" href="create/">报名</a>
+                    {% else %}
+                    <h2>你已经报名了</h2>
+                    <h3>你的申报状态如下:</h3>
+                    <h4>{{ status }}</h4>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="content-disallow">
+                    gck! gck! gck!
+                </div>
+            {% endif %}
+        </div>
+        <div class="logout">
+            <a href="/dashboard/logout">退出登录</a>
+        </div>
+    </div>
+</body>
+</html>

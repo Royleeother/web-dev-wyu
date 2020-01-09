@@ -1,0 +1,139 @@
+.content-post {
+    width: 99%;
+    height: 98%;
+    border-color: goldenrod;
+    position: absolute;
+}
+
+.contest-description-bar {
+    margin-bottom: 10px;
+    background-color: aliceblue;
+    border: solid;
+    text-align: left;
+    font-size: medium;
+}
+
+.form-group {
+    background-color: aliceblue;
+    
+    box-shadow: 0px 8px 7px -4px  rgba(51,51,51,0.57);
+    -webkit-box-shadow: 0px 8px 7px -4px  rgba(51,51,51,0.57);
+    -moz-box-shadow: 0px 21px 17px -4px rgba(51,51,51,0.57);
+}
+
+.content-function {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.content-review {
+    height: 50%;
+}
+
+.redirect-button {
+    width: 30px;
+    height: 20px;
+    box-sizing: content-box;
+    background-color: #95ccce;
+    font-size: larger;
+    padding: 8px;
+    position: relative;
+    border-radius: 3px;
+}
+
+.graded-area {
+    width: 100%;
+    height: 100%;
+}
+
+.student-area {
+    width: 100%;
+    height: 100%;
+}
+
+.area-title-bar {
+    font-size: large;
+    font-weight: bold;
+    padding: 8px;
+    border-bottom-style: inset;
+    margin-bottom: 15px;
+}
+
+.student-contest-box {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 15%;
+    height: 20%;
+    border-radius: 3px;
+    margin: 7px;
+    font-size: medium;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.55);
+}
+
+.student-name-bar {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+}
+
+.student-name-bar:hover {
+    background-color: beige;
+    font-size: large;
+}
+
+.student-state-bar {
+    width: 100%;
+    height: 36%;
+    text-align: center;
+}
+
+/* form  */
+.form-area {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.label-and-bar-wrap {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.label-and-bar {
+    padding: 3px;
+    width: 100%;
+}
+
+.control-label {
+    text-align: center;
+    padding: 2px;
+    width: 15%;
+    height: 20%;
+    margin-right: 10px;
+    background-color: cornflowerblue;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.contest-form-bar {
+    border-bottom-style: inset;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 50%;
+    text-align: center;
+}
+
+.contest-form-bar li {
+    list-style-type:none;
+    width: 20%;
+}
+
+.contest-form-bar ul {
+    width: 514%;
+    padding: 0px;
+    margin: 0;
+}
+/* form  */
+

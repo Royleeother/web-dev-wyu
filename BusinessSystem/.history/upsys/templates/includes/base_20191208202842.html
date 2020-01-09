@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %} 团委综合业务系统 {% endblock %}
+    </title>
+    {% block app-css %} 
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"> 
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+</head>
+
+<body>
+    {% include 'includes/header.html' %}
+    <div class="info-wrap">
+        <div class="info-container">
+            {% block left-box %}
+            {% endblock left-box %}
+
+            {% block middle-box %}
+            {% endblock middle-box %}
+            
+            {% block right-box %}
+            {% endblock right-box %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+随想区：
+* upsys里面有一个tools.py 是用来装一些公用的工具
+比如 contest_name_chinese 换成中文名
+
+* 因为是我们自己定义的用户，所以settings.py 要加 AUTH_USER_MODEL = 'dashboard.User'
+
+* 

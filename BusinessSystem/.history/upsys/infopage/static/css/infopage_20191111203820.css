@@ -1,0 +1,9 @@
+div {
+    border: dotted;
+}
+
+.info-box {
+    widows: 100%;
+    height: 30%;
+    border-color: royalblue; 
+}
