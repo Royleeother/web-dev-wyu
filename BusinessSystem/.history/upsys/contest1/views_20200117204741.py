@@ -190,9 +190,9 @@ def sss(request, sid, judge_type):
             check_if_move_pool(give_dict, judge_type, student_contest, department)
             return redirect('/tiaozhancup/review/')
         else:
-            print('invalid form???')
-            print("form:", form)            
-
+        print('invalid form???')
+        print("form:", form)            
+        
     return render(request, 'contest1_form_to_grade.html', content)
 
 def showform(request, sid):
@@ -285,37 +285,3 @@ def giveAuthority(contest_name):
             teacher.save()
 
         print("teacher.authorization_for_contes:", teacher.authorization_for_contest)
-
-def check_if_move_pool(give_dict, staff_type, student_contest, department=''):
-    print("pool:", give_dict)
-    print("department", department)
-    print("staff_type", staff_type)
-
-    if staff_type == 'school':
-        the_list = judge_list[staff_type][department]
-    else:
-        the_list = judge_list[staff_type]
-
-    print("the_list", the_list)
-    keys = give_dict.keys()
-    true_count = 0
-    for tid in the_list:
-        if tid not in keys:
-            print("bai bai")
-            return
-        aa = give_dict[tid].split(',')[0]
-        decision = eval(aa.split('[')[1])
-        print("decision", decision)
-        print("decision", type(decision))
-        if decision:
-            true_count += 1
-            if true_count == len(the_list):
-                is_review_by_xxx = 'is_review_by_' + staff_type
-                setattr(student_contest, is_review_by_xxx, True)
-                student_contest.save()
-                student = student_contest.student
-                move_pool(staff_type, student)
-            else:
-                print("true_count", true_count)
-                print("不够 继续")
-

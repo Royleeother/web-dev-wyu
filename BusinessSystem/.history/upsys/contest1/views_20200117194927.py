@@ -151,7 +151,6 @@ class InfoUpdateView(LoginRequiredMixin, UpdateView):
         # return super().form_valid(form)
 
 def reviewpage(request):
-    # 此处的 contest_is_reviewing 要改成对应的池的学生信息
     contest_is_reviewing = Contest1.objects.all()
     gg = contest_is_reviewing[1]
     
@@ -169,29 +168,14 @@ def reviewpage(request):
 def sss(request, sid, judge_type):
     student = Student.objects.get(SID = sid)
     student_contest = Contest1.objects.get(student=student)
+    user = request.user.teacher
     name = request.user.username
     # give_form()
     # 判断老师是否有资格，并给予不同的表单
     if user.TID in judge_list['boss']:
         give_grade_form = Contest1_for_review(review_type=staff[name])
         student_form = Contest1Form(instance=student_contest)
-
-    if request.method == 'POST':
-        user = request.user.teacher
-        form = Contest1_for_review(data=request.POST, review_type=staff[name])
-        if form.is_valid():
-            form_cd = form.cleaned_data
-            # 这里的decision 和 comment 都在上面
-            dd = decision[name]
-            mm = comment[name]
-            setattr(student_contest, dd, profile_cd[dd])
-            setattr(student_contest, mm, profile_cd[mm])
-            student_contest.save()
-            check_if_move_pool(give_dict, judge_type, student_contest, department)
-            return redirect('/tiaozhancup/review/')
-        else:
-            print('invalid form???')
-            print("form:", form)            
+        
 
     return render(request, 'contest1_form_to_grade.html', content)
 
@@ -285,37 +269,3 @@ def giveAuthority(contest_name):
             teacher.save()
 
         print("teacher.authorization_for_contes:", teacher.authorization_for_contest)
-
-def check_if_move_pool(give_dict, staff_type, student_contest, department=''):
-    print("pool:", give_dict)
-    print("department", department)
-    print("staff_type", staff_type)
-
-    if staff_type == 'school':
-        the_list = judge_list[staff_type][department]
-    else:
-        the_list = judge_list[staff_type]
-
-    print("the_list", the_list)
-    keys = give_dict.keys()
-    true_count = 0
-    for tid in the_list:
-        if tid not in keys:
-            print("bai bai")
-            return
-        aa = give_dict[tid].split(',')[0]
-        decision = eval(aa.split('[')[1])
-        print("decision", decision)
-        print("decision", type(decision))
-        if decision:
-            true_count += 1
-            if true_count == len(the_list):
-                is_review_by_xxx = 'is_review_by_' + staff_type
-                setattr(student_contest, is_review_by_xxx, True)
-                student_contest.save()
-                student = student_contest.student
-                move_pool(staff_type, student)
-            else:
-                print("true_count", true_count)
-                print("不够 继续")
-

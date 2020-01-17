@@ -136,7 +136,7 @@ def reviewpage(request):
     college_pool = College_pool.objects.all()[0]
     boss_pool = Boss_pool.objects.all()[0]
 
-    # 由老师是什么部门，决定老师可以审核哪个池的信息
+
     for items in judge_list.items():
         stage = items[0]
         biao = items[1]
