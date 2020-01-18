@@ -102,10 +102,6 @@ class FormCreateView(LoginRequiredMixin, CreateView):
             # Contest1.objects.get(student=user).is_reviewing = True
             # 注入比赛名
             push_into_contest(user, self.contest_name)
-            # 这里是把他扔进院池
-            # 扔进最初级的池子
-            pool = Stage1_pool.objects.all()[0]
-            throw_to_pool_contest1(user, pool)
             
         return super(FormCreateView, self).form_valid(form)
 
@@ -155,29 +151,12 @@ class InfoUpdateView(LoginRequiredMixin, UpdateView):
         # return super().form_valid(form)
 
 def reviewpage(request):
-    # 此处的 contest_is_reviewing 要改成对应的池的学生信息
-    user = request.user.teacher
-    contest_is_reviewing = []
-    sid_list = ''
-
-    stage1_pool = Stage1_pool.objects.all()[0]
-    stage2_pool = Stage2_pool.objects.all()[0]
-    stage3_pool = Stage3_pool.objects.all()[0]
-
-    # 由老师是什么部门，决定老师可以审核哪个池的信息
-    name = user.username
-    staff_review_pool = {
-        '厅室管理员': eval(stage1_pool.stage1_pool),
-        '校律委管理员': eval(stage2_pool.stage2_pool),
-        '团委管理员': eval(stage3_pool.stage3_pool),
-    }
-    sid_list = staff_review_pool[name]
-    for sid in sid_list:
-        ss = Contest1.objects.get(student_id=int(sid))
-        contest_is_reviewing.append(ss)
+    contest_is_reviewing = Contest1.objects.all()
+    gg = contest_is_reviewing[1]
+    
     # for cc in contest_is_reviewing:
     #     test.append(Contest1Form(instance=cc))
-    print("厅室看到的：", contest_is_reviewing)
+
     content = {
         'contest_is_reviewing':contest_is_reviewing,
         'authorize_TID':authorize_TID,
@@ -186,37 +165,20 @@ def reviewpage(request):
     return render(request, 'contest1_review.html', content)
 
 #给老师打分的函数
-def sss(request, sid):
+def sss(request, sid, judge_type):
     student = Student.objects.get(SID = sid)
     student_contest = Contest1.objects.get(student=student)
-    name = request.user.username
-    user = request.user.teacher # 哈哈哈哈
+    user = request.user.teacher
     # give_form()
     # 判断老师是否有资格，并给予不同的表单
-
-    give_grade_form = Contest1_for_review(review_type=staff[name])
-    student_form = Contest1Form(instance=student_contest)
-
-    if request.method == 'POST':
-        user = request.user.teacher
-        form = Contest1_for_review(data=request.POST, review_type=staff[name])
-        if form.is_valid():
-            form_cd = form.cleaned_data
-            # 这里的decision 和 comment 都在上面
-            dd = decision[name] 
-            mm = comment[name]
-            setattr(student_contest, dd, form_cd[dd])
-            setattr(student_contest, mm, form_cd[mm])
-            student_contest.save()
-            check_if_move_pool_contest1(student_contest, staff[name])
-            return redirect('/contest1/review/')
-        else:
-            print('invalid form???')
-            print("form:", form)            
-    content = {
-        'give_grade_form': give_grade_form,
-        'student_form': student_form,
-    }
+    if user.TID in judge_list['boss']:
+        print("jin ndabshuab")
+        student_form = TiaozhancupForm_forboss(instance=student_contest)
+        print("bosssss:", student_form)
+        give_grade_form = Tiaozhancup_for_review_boss()
+    else:
+        student_form = TiaozhancupForm(instance=student_contest)
+        give_grade_form = Tiaozhancup_for_review()
 
     return render(request, 'contest1_form_to_grade.html', content)
 
@@ -310,50 +272,3 @@ def giveAuthority(contest_name):
             teacher.save()
 
         print("teacher.authorization_for_contes:", teacher.authorization_for_contest)
-
-# 这里要改 这里要改
-# 这里要改 这里要改
-# 这里要改 这里要改
-# 这里要改 这里要改
-def check_if_move_pool_contest1(student_contest, type):
-    if type == 'ccyl':
-        return
-    decision = type + '_comment'
-    staff_decision = getattr(student_contest, decision)
-    current_pool = {
-        'guiding_unit': [Stage1_pool.objects.all()[0], 'stage1_pool'],
-        'discipline_unit': [Stage2_pool.objects.all()[0], 'stage2_pool']
-    }
-    # 凑合着这个名吧，
-    next_pool_1 = { 
-        'guiding_unit': [Stage2_pool.objects.all()[0], 'stage2_pool'],
-        'discipline_unit': [Stage3_pool.objects.all()[0], 'stage3_pool']
-    }
-    if staff_decision:
-        orign_pool = current_pool[type][0]
-        orign_pool_name = current_pool[type][1]
-        ## 移除
-        print("kkkkkkkkkk:", getattr(orign_pool, orign_pool_name))
-        the_list = eval(getattr(orign_pool, orign_pool_name))
-        student_id = student_contest.student.user.id
-        the_list.remove(str(student_id))
-        setattr(orign_pool, orign_pool_name, str(the_list))
-        orign_pool.save()
-        # 写入
-        next_pool = next_pool_1[type][0]
-        next_pool_name = next_pool_1[type][1]
-        the_list = eval(getattr(next_pool, next_pool_name))
-        the_list.append(str(student_id))
-        setattr(next_pool, next_pool_name, str(the_list))
-        next_pool.save()
-        return 
-
-def throw_to_pool_contest1(user, pool):
-    school = user.school
-    what_stage = 'stage1_pool'
-    #
-    temp = eval(getattr(pool, what_stage))
-    temp.append(str(user.user.id))
-    #
-    setattr(pool, what_stage, str(temp)) 
-    pool.save()

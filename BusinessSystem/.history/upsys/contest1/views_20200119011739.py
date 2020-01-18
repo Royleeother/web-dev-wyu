@@ -321,19 +321,18 @@ def check_if_move_pool_contest1(student_contest, type):
     decision = type + '_comment'
     staff_decision = getattr(student_contest, decision)
     current_pool = {
-        'guiding_unit': [Stage1_pool.objects.all()[0], 'stage1_pool'],
-        'discipline_unit': [Stage2_pool.objects.all()[0], 'stage2_pool']
+        'guiding_unit': [Stage1_pool, 'stage1_pool'],
+        'discipline_unit': [Stage2_pool, 'stage2_pool']
     }
     # 凑合着这个名吧，
     next_pool_1 = { 
-        'guiding_unit': [Stage2_pool.objects.all()[0], 'stage2_pool'],
-        'discipline_unit': [Stage3_pool.objects.all()[0], 'stage3_pool']
+        'guiding_unit': [Stage2_pool, 'stage2_pool'],
+        'discipline_unit': [Stage3_pool, 'stage3_pool']
     }
     if staff_decision:
         orign_pool = current_pool[type][0]
         orign_pool_name = current_pool[type][1]
         ## 移除
-        print("kkkkkkkkkk:", getattr(orign_pool, orign_pool_name))
         the_list = eval(getattr(orign_pool, orign_pool_name))
         student_id = student_contest.student.user.id
         the_list.remove(str(student_id))

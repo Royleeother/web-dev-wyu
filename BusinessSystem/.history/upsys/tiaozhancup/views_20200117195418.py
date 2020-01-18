@@ -136,7 +136,7 @@ def reviewpage(request):
     college_pool = College_pool.objects.all()[0]
     boss_pool = Boss_pool.objects.all()[0]
 
-    # 由老师是什么部门，决定老师可以审核哪个池的信息
+
     for items in judge_list.items():
         stage = items[0]
         biao = items[1]
@@ -177,7 +177,7 @@ def reviewpage(request):
 def showform(request, sid, judge_type):
     student = Student.objects.get(SID = sid)
     student_contest = Tiaozhancup.objects.get(student=student)
-    user = request.user.teacher
+
     # 针对不同对象，给不同表单
     # give_form(user, judge_list, 
     # student_form_boss='', student_form_normal, 
@@ -302,7 +302,25 @@ def move_pool(staff_type, student):
         'college': College_pool.objects.all()[0],
         'boss': Boss_pool.objects.all()[0],
     }
-    
+    # if staff_type == 'school':
+    #     next_pool = 'college'
+    #     school_pool = School_pool.objects.all()[0]
+    #     the_list = eval(getattr(school_pool, school_name))
+    #     print("the_list", the_list)
+    #     the_list.remove(str(student_id))
+    #     print("the_list:::", the_list)
+    #     setattr(school_pool, school_name, str(the_list))
+    #     school_pool.save()
+    #     college_pool = College_pool.objects.all()[0]
+    #     the_list = eval(getattr(college_pool, 'college_pool'))
+    #     print("the_list_next", the_list)
+    #     the_list.append(str(student_id))
+    #     print("the_list_next:::", the_list)
+    #     setattr(college_pool, 'college_pool', str(the_list))
+    #     college_pool.save()
+
+    # elif staff_type == 'college':
+    #     next_pool = 'boss'
     if staff_type != 'boss':
         move_pool_helper(staff_type, get_pool, school_name, student_id)
 
