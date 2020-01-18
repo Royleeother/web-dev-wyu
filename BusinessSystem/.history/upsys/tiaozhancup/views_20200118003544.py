@@ -177,7 +177,7 @@ def reviewpage(request):
 def showform(request, sid, judge_type):
     student = Student.objects.get(SID = sid)
     student_contest = Tiaozhancup.objects.get(student=student)
-    user = request.user.teacher
+
     # 针对不同对象，给不同表单
     # give_form(user, judge_list, 
     # student_form_boss='', student_form_normal, 
