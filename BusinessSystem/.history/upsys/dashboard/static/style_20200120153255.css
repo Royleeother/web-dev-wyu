@@ -126,7 +126,7 @@ canvas{
 /* 忘记密码 */
 	/* Page one */
 .p-one-forgot{z-index: 2;position:absolute;width: 417px;border-radius: 5px;height: 357px;background-color: rgba(255,255,255,0.9);box-shadow: 0px 0px 5px #333333;top: 58%;left: 50%;margin-top: -240px;margin-left: -175px;transition: all 1s;-moz-transition: all 1s;	/* Firefox 4 */-webkit-transition: all 1s;	/* Safari 和 Chrome */-o-transition: all 1s;	/* Opera */}
-.p-one{width:70%;padding-left:87px; margin:60px 0 15px 0;}
+.p-one{width:70%;padding-left:87px; margin:60px 0 15px 0;;}
 .p-one-input{z-index: 2;transition: all 0.5s;padding-left: 10px;color: #333333; background-color: rgba(255,255,255,0.4);width: 83%;height: 30px;border: 0;border-bottom: 1px solid #cccccc;box-sizing: border-box;outline: none;position: relative; margin-bottom: 10px;}
 	/* Page two */
 .forgot{z-index: 2;position:absolute;width: 417px;border-radius: 5px;height: 490px;background-color: rgba(255,255,255,0.9);box-shadow: 0px 0px 5px #333333;top: 50%;left: 50%;margin-top: -240px;margin-left: -175px;transition: all 1s;-moz-transition: all 1s;	/* Firefox 4 */-webkit-transition: all 1s;	/* Safari 和 Chrome */-o-transition: all 1s;	/* Opera */}

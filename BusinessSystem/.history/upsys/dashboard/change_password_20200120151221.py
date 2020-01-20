@@ -16,10 +16,11 @@ class CustomPasswordResetView(auth_views.PasswordResetView):
         ID = post.get('ID')
         email_post = post.get('email')
         query_set = Student.objects.filter(SID=ID)
+        print("query_set", query_set[0])
         print("data:", post)
         if len(query_set) == 0:
             return render(request, 'reset_password/password_reset.html', context={"message": '你输入的学号不存在，请确认'})
-        email_by_user = query_set[0].email
+        email_by_user = query_set.email
         if email_post == email_by_user:
             print("邮件已发送")
             return super(auth_views.PasswordResetView, self).post(request, *args, **kwargs)
