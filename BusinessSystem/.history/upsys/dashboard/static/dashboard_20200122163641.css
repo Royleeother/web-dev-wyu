@@ -58,7 +58,8 @@
     width: 25%;
     display: inline-table;
     margin: 6px 10px;
-    
+    border: dotted;
+    border-color: aqua;
 }
 
 .dash-card{
@@ -74,12 +75,11 @@
 .dash-card-header{
     float: left;
     text-align: center;
-    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.3), 
-                0 4px 25px 0px rgba(0, 0, 0, 0.1), 
-                0 8px 10px -5px rgba(0, 0, 0, 0.1); */
-    margin: -20px 20px 0;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin: -20px 15px 0;
     border-radius: 5px;
     padding: 3px;
+    background-color: #999999;
 }
 
 /* 卡片 */

@@ -291,35 +291,22 @@ def check_if_move_pool(give_dict, staff_type, student_contest, department=''):
                 print("true_count", true_count)
                 print("不够 继续")
         else:
-            # 退到temp_pool
+            # 退回下一个池
             # 暂时先写这种，下一个比赛在合并成一个整合型的move_pool
+            current_pool = get_pool[staff_type]
             get_pool = {
                 'school': School_pool.objects.all()[0],
                 'college': College_pool.objects.all()[0],
                 'boss': Boss_pool.objects.all()[0],
             }
-            current_pool = get_pool[staff_type]
-            student = student_contest.student
-            if staff_type == 'school':
-                current_pool_name = school_name_trans[student.school]
-            else:
-                current_pool_name = staff_type + '_pool'
-            go_to_temp_pool(current_pool, current_pool_name, student)
+            move_to_previous_pool(current_pool)
 
-def go_to_temp_pool(current_pool, current_pool_name, student):
-    # 移除
-    student_id = student.user.id
-    the_list = eval(getattr(current_pool, current_pool_name))
-    the_list.remove(str(student_id))
-    setattr(current_pool, current_pool_name, str(the_list))
-    current_pool.save()
-    # 写入
-    next_pool = Temp_pool.objects.all()[0],
-    next_pool_name = temp_pool
-    the_list = eval(getattr(next_pool, next_pool_name))
-    the_list.append(str(student_id))
-    setattr(next_pool, next_pool_name, str(the_list))
-    next_pool.save()
+def move_to_previous_pool(current_pool):
+    get_pool = {
+        'school': School_pool.objects.all()[0],
+        'college': College_pool.objects.all()[0],
+        'boss': Boss_pool.objects.all()[0],
+    }
 
 def move_pool(staff_type, student):
     print("move_pool", "move_pool")

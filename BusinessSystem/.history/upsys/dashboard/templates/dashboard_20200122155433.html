@@ -39,26 +39,24 @@
     <div class="dashboard-title-container">
         <div class="dashboard-title-fix vertical-center">
             <b>{{ 瀚海北金 }}</b> 
-            <b>已参加比赛</b> 
+            <b>用户中心</b> 
         </div>
     </div>
     <section>
         <div class="dashboard-card-container">
-            {% for jj in contest_is_reviewing %}
-            {%endfor%}
             <div class="card-wrapper">
                 <div class="dash-card dash-card-stats">
                     <div class="dash-card-header dash-card-orange">
-                        <i class="fa fa-check-circle fa-2x" style="color: rgb(179, 20, 20);"></i>
+                        <i class="dash-material-icons">account_box</i>
                     </div>
                     <div class="dash-card-content">
-                        <p class="category"></p>
-                        <h3 class="title">比赛名</h3>
+                        <p class="category">用户等级</p>
+                        <h3 class="title">VIP</h3>
                     </div>
                     <div class="dash-card-footer">
                         <div class="stats">
-                            <i class="dash-material-icons"></i>
-                            <a href="/user/shop">查看详情</a>
+                            <i class="dash-material-icons">turned_in</i>
+                            <a href="/user/shop">提升等级</a>
                         </div>
                     </div>
                 </div>
@@ -66,38 +64,20 @@
             <div class="card-wrapper">
                 <div class="dash-card dash-card-stats">
                     <div class="dash-card-header dash-card-orange">
-                        <i class="fa fa-spinner fa-2x" style="color: rgb(197, 197, 30);"></i>
+                        <i class="dash-material-icons">account_box</i>
                     </div>
                     <div class="dash-card-content">
-                        <p class="category"></p>
-                        <h3 class="title">比赛名</h3>
+                        <p class="category">用户等级</p>
+                        <h3 class="title">VIP</h3>
                     </div>
                     <div class="dash-card-footer">
                         <div class="stats">
-                            <i class="dash-material-icons"></i>
-                            <a href="/user/shop">查看详情</a>
+                            <i class="dash-material-icons">turned_in</i>
+                            <a href="/user/shop">提升等级</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-wrapper">
-                <div class="dash-card dash-card-stats">
-                    <div class="dash-card-header dash-card-orange">
-                        <i class="fa fa-thumbs-o-down fa-2x" style="color: green;"></i>
-                    </div>
-                    <div class="dash-card-content">
-                        <p class="category"></p>
-                        <h3 class="title">比赛名</h3>
-                    </div>
-                    <div class="dash-card-footer">
-                        <div class="stats">
-                            <i class="dash-material-icons"></i>
-                            <a href="/user/shop">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </section>
     

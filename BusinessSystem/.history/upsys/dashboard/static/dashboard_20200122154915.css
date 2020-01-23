@@ -46,40 +46,17 @@
 /* 卡片 */
 .dashboard-card-container {
     position: relative;
+    background: rgb(242, 242, 242);
     height: 86%;
-    width: 100%;
     box-sizing: border-box;
     display: table;
     content: " ";
-    
 }
 
 .card-wrapper{
     width: 25%;
-    display: inline-table;
-    margin: 6px 10px;
-    
 }
 
-.dash-card{
-    position: relative;
-    width: 100%;
-    margin: 25px 0;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    border-radius: 3px;
-    color: rgba(0, 0, 0, 0.87);
-    background: #fff;
-}
 
-.dash-card-header{
-    float: left;
-    text-align: center;
-    /* box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.3), 
-                0 4px 25px 0px rgba(0, 0, 0, 0.1), 
-                0 8px 10px -5px rgba(0, 0, 0, 0.1); */
-    margin: -20px 20px 0;
-    border-radius: 5px;
-    padding: 3px;
-}
 
 /* 卡片 */

@@ -230,7 +230,6 @@ def showform(request, sid, judge_type):
                 return redirect('/tiaozhancup/review/')
             # 防止重复提交功能
             #
-            # give_dict 是一个列表，元素为(布尔值, 字符串)的元组
             give_dict = eval(getattr(student_contest, staff_give))
             department = user.department
             check_if_move_pool(give_dict, judge_type, student_contest, department)
@@ -279,47 +278,17 @@ def check_if_move_pool(give_dict, staff_type, student_contest, department=''):
         print("decision", decision)
         print("decision", type(decision))
         if decision:
-            # 康康是否要移
+            # 康康是否要以
             true_count += 1
             if true_count == len(the_list):
                 is_review_by_xxx = 'is_review_by_' + staff_type
                 setattr(student_contest, is_review_by_xxx, True)
                 student_contest.save()
                 student = student_contest.student
-                move_pool(staff_type, student)  
+                move_pool(staff_type, student)
             else:
                 print("true_count", true_count)
                 print("不够 继续")
-        else:
-            # 退到temp_pool
-            # 暂时先写这种，下一个比赛在合并成一个整合型的move_pool
-            get_pool = {
-                'school': School_pool.objects.all()[0],
-                'college': College_pool.objects.all()[0],
-                'boss': Boss_pool.objects.all()[0],
-            }
-            current_pool = get_pool[staff_type]
-            student = student_contest.student
-            if staff_type == 'school':
-                current_pool_name = school_name_trans[student.school]
-            else:
-                current_pool_name = staff_type + '_pool'
-            go_to_temp_pool(current_pool, current_pool_name, student)
-
-def go_to_temp_pool(current_pool, current_pool_name, student):
-    # 移除
-    student_id = student.user.id
-    the_list = eval(getattr(current_pool, current_pool_name))
-    the_list.remove(str(student_id))
-    setattr(current_pool, current_pool_name, str(the_list))
-    current_pool.save()
-    # 写入
-    next_pool = Temp_pool.objects.all()[0],
-    next_pool_name = temp_pool
-    the_list = eval(getattr(next_pool, next_pool_name))
-    the_list.append(str(student_id))
-    setattr(next_pool, next_pool_name, str(the_list))
-    next_pool.save()
 
 def move_pool(staff_type, student):
     print("move_pool", "move_pool")

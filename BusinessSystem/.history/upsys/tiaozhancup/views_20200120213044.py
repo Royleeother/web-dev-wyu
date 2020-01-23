@@ -308,18 +308,8 @@ def check_if_move_pool(give_dict, staff_type, student_contest, department=''):
 
 def go_to_temp_pool(current_pool, current_pool_name, student):
     # 移除
-    student_id = student.user.id
-    the_list = eval(getattr(current_pool, current_pool_name))
-    the_list.remove(str(student_id))
-    setattr(current_pool, current_pool_name, str(the_list))
-    current_pool.save()
+
     # 写入
-    next_pool = Temp_pool.objects.all()[0],
-    next_pool_name = temp_pool
-    the_list = eval(getattr(next_pool, next_pool_name))
-    the_list.append(str(student_id))
-    setattr(next_pool, next_pool_name, str(the_list))
-    next_pool.save()
 
 def move_pool(staff_type, student):
     print("move_pool", "move_pool")
